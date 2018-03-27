@@ -1,0 +1,67 @@
+@import './modules/variables.scss';
+
+.main {
+  $main-color: red !global;
+  // $main-color: green !default;
+  $main-color: pink;
+  // background-color: $main-color;
+  background-color: $main-color;
+
+  .box {
+    height: 100px;
+    // width: 100px;
+    // border: $main-border;
+    background-color: $main-color;
+  }
+}
+
+.box2 {
+  height: 100px;
+  // width: 100px;
+  background-color: aqua;
+  &__title {
+    text-transform: uppercase;
+  }
+  &__link {
+    > a {
+      text-decoration: none;
+      font-size: 2em;
+      color: #fff;
+    }
+  }
+}
+
+.box3 {
+  height: 100px;
+  background-color: beige;
+  .widget {
+    margin: 0;
+    height: 30px;
+    background-color: bisque;
+  }
+  .footer .widget {
+    height: 30px;
+    margin-top: 1em;
+    background-color: burlywood;
+  }
+}
+
+.box4 {
+  background-color: yellowgreen;
+
+  .menu {
+    &, ul {
+      list-style: none;
+    }
+  }
+
+  .btn {
+    height: 50px;
+    width: 100px;
+    color: tomato;
+    &, button#{&} {
+      background-color: green;
+      color: #fff;
+    }
+  }
+}
