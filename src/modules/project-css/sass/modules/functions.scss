@@ -59,7 +59,18 @@ body {
     @return url($path + $img);
   }
 
+  @function no-unit($number){
+    @if not unitless($number){
+      $unit:$number*0+1;
+      $no-unit: $number/$unit;
+      @return $no-unit;
+    } @else {
+      @return no-unit;
+    }
+  }
+
   div {
     // background: img('bgm.jpg');
+    value: no-unit(10deg);
   }
 }
