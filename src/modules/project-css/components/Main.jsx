@@ -40,6 +40,7 @@ class Main extends Component {
           <div className="banner"></div>
         </div>
         <div className="mixins"></div>
+        <div className="functions"></div>
       </div>
     )
   }
