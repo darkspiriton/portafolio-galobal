@@ -34,6 +34,9 @@ class Main extends Component {
           <button className="btn">Click</button>
           <a className="btn__link">Click Link</a>
         </div>
+        <div className="box5">
+          <div className="banner"></div>
+        </div>
       </div>
     )
   }

@@ -84,3 +84,145 @@
     color: lightsalmon;
   }
 }
+
+.box5 {
+  $h: 100px;
+  height: $h;
+  background: {
+    color: green;
+  }
+  // @at-root .banner {
+  //   background: {
+  //     image: url(https://i.ebayimg.com/images/g/J8YAAOSwVY1ZpOt0/s-l300.jpg),
+  //     url(https://i.pinimg.com/originals/9a/c6/78/9ac678b1fa91fdec282f4eec3a815122.png);
+  //     size: contain, contain;
+  //     position: center;
+  //     repeat: no-repeat;
+  //   }
+  //   height: 100%;
+  // }
+  // &::after {
+  //   content: 'TEXT';
+  //   display: block;
+  //   text-align: center;
+  // }
+
+  // Tipos de datos
+  .data-number {
+    $val: 100px;
+    type: type-of($val);
+    width: $val/2;
+  }
+
+  .data-string {
+    $color: red;
+    $string: 'Hola mundo';
+    $list: Open Sans, sans-serif;
+    $width: 100 + px;
+    $number: 200;
+    $unit: 1px;
+    $numberUnit: $number * $unit;
+    type: type-of($color);
+    type: type-of($string);
+    type: type-of($list);
+    type: type-of($width);
+    type: type-of($numberUnit);
+    value: $width/2;
+    value: $numberUnit;
+    value: calc(#{$numberUnit}/2);
+    value: nth($list, 2);
+  }
+
+  .data-color {
+    $var: hsl(200,50%,50%);
+    type: type-of($var);
+    value: $var;
+  }
+
+  .data-bool {
+    $var: 10 < 5;
+    type: type-of($var);
+    value: $var;
+  }
+
+  .data-list {
+    $var: list1, list2, list3, list4;
+    type: type-of($var);
+    value: nth($var, 4);
+    length: length($var);
+  }
+
+  .data-map {
+    $networks-color: (
+      facebook: blue,
+      youtube: red,
+      twitter: lightblue,
+      instagram: arcoiris
+    );
+    type: type-of($networks-color);
+    value: map-get($networks-color, facebook);
+    @each $key, $value in $networks-color {
+      &.#{$key}{
+        background-color: $value;
+      }
+    }
+
+  }
+
+  // Operaciones
+  // Adicion +
+  // Resta -
+  // Division
+  // Multiplicacion
+  // Comparacion <> <= >= == !=
+  // Operadores and or
+  .div {
+    $a: 6px;
+    $b: 1px;
+    $c: ($a - $b) * -1;
+    type: type-of($c);
+    width: $c;
+    font: #{$a * 2}/#{$b};
+    $number: 5px;
+    @if type-of($number) == number and $number > 3px {
+      type: type-of($number);
+    } @else {
+      type: Not a Number;
+    }
+  }
+
+  // interporlar
+  $var: 2;
+  $company: youtube;
+  .div-#{$company}:nth-child(#{$var}){
+    &::before {
+      content: "Bienvenido a #{$company}"
+    }
+  }
+
+  // directivas at rules
+  // @function @return @if/@else @each @for ...
+
+  // placeholder
+  %placeholder {
+    width: 20px;
+    height: 100px;
+    background: yellow;
+  }
+
+  @mixin placeholder2($color) {
+    width: 20px;
+    height: 100px;
+    background: $color;
+  }
+
+  // No duplica codigo
+  .banner {
+    @extend %placeholder;
+    // @include placeholder2();
+  }
+  .banner2 {
+    @extend %placeholder;
+    @include placeholder2(green);
+  }
+}
