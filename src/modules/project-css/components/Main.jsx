@@ -31,6 +31,8 @@ class Main extends Component {
           <div className="btn">
             <button className="btn">Click</button>
           </div>
+          <button className="btn">Click</button>
+          <a className="btn__link">Click Link</a>
         </div>
       </div>
     )

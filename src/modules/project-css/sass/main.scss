@@ -1,4 +1,5 @@
 @import './modules/variables.scss';
+// @import './modules/_partials.scss';
 
 .main {
   $main-color: red !global;
@@ -55,13 +56,31 @@
     }
   }
 
-  .btn {
-    height: 50px;
-    width: 100px;
-    color: tomato;
-    &, button#{&} {
-      background-color: green;
-      color: #fff;
-    }
+}
+.btn {
+  $color-text:white !default;
+  height: 50px;
+  width: 100px;
+  color: $color-text;
+  @at-root button#{&} {
+    background-color: red;
+    color: $color-text;
+  }
+  &:hover {
+    background-color: yellow;
+    color: blueviolet;
+  }
+}
+
+.btn__link {
+  @extend .btn;
+  display: inline-block;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: black;
+  &:hover {
+    background-color: white;
+    color: lightsalmon;
   }
 }
