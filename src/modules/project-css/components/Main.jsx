@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 // import '../sass/main.scss'
-import '../sass/modules/mixins.scss'
+// import '../sass/modules/mixins.scss'
+import '../sass/modules/functions.scss'
 
 class Main extends Component {
   render () {
