@@ -2,6 +2,64 @@ body {
   background-color: green;
   color: #fff;
 }
-.functions {
 
+.functions {
+  // functions css
+  // quote($string) unquote($string)
+  // round(5/2) percentage(0.01)
+  // nth($list,$index) map-get($map.$key)
+  // type-of($variable)
+  // unit()
+  // Devuelve la unidad de medida de un numero como string
+  $unit: 20em;
+  $unit2: $unit + 2;
+  .unit {
+    width: unit($unit);
+    status: unitless($unit);
+  }
+  .unit2 {
+      width: $unit2;
+  }
+  // unitless()
+  // devuelve
+  // true si el dato no tiene unidad
+  // false si el dato tiene unidad
+
+  @function suma($a,$b:10){
+    @return $a+$b;
+  }
+
+  .suma {
+    width: suma(10em,2);
+    transform: rotate(suma(5deg));
+  }
+
+  @function em($elem, $context:16px) {
+    $em:$elem/$context;
+    @return $em*1em;
+  }
+
+  // Ejecricios
+  .div{
+    p {
+      font-size: em(8px);
+    }
+  }
+  .div2{
+    $fz: 24;
+    font-size: $fz;
+    p {
+      font-size: em(7,$fz);
+    }
+  }
+
+  // Image path (ruta a las imagenes)
+  $path: '../../../dist/assets/img/';
+  @function img($img){
+    @return url($path + $img);
+  }
+
+  div {
+    // background: img('bgm.jpg');
+  }
 }
