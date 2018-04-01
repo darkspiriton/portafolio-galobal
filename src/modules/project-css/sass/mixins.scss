@@ -1,0 +1,152 @@
+body {
+  background-color: black;
+  color: #fff;
+}
+
+// placeholder
+%button {
+  display: inline-block;
+  line-height: 3;
+  padding: 0 1em;
+}
+
+.mixins {
+  background-color: red;
+  .button {
+    @extend %button;
+    &.small {
+      font-size: 0.8em;
+      line-height: 2.5;
+    }
+    &.big {
+      font-size: 1.2em;
+      line-height: 2.5;
+    }
+  }
+
+  // mixins
+  // al final los parametros con default
+  @mixin button-mixin($line, $font, $display:inline-block) {
+    display: $display;
+    line-height: $line;
+    font-size: $font;
+    padding: 0 1em;
+  }
+
+  .button-mixin {
+    @include button-mixin(3, 1em);
+    &.small {
+      // change position paramas
+      @include button-mixin($font: 2.5em, $line: 0.8);
+    }
+  }
+
+    @mixin widget($padding, $header-font, $header-color){
+    display: block;
+    padding: $padding;
+    header#{&} {
+      font-family: $header-font;
+      color: $header-color;
+    }
+  }
+
+  @at-root {
+    .windget {
+      @include widget(1em, Arial, blue);
+    }
+  }
+
+  @mixin multiple($box-shadow...) {
+    box-shadow: $box-shadow;
+  }
+
+  .box {
+    @include multiple(1px solid red, 2px solid white);
+  }
+
+  // añadir contenido en el mxin
+  @mixin menu() {
+    list-style: none;
+    @content;
+  }
+
+  .menu {
+    @include menu {
+      li {
+        float: left;
+      }
+    }
+  }
+
+
+  // Requerimos un grid-system de 12 columnas
+  // Necesitamos un mixin que calcule el ancho en porcentaje segun el numero de comunas
+
+  @mixin grid($cols, $cols-total: 12) {
+    width: percentage($cols/$cols-total);
+  }
+
+  .cols-6 {
+    @include grid(2, 2);
+  }
+
+  // Media queries
+  // Requerimos un mixin que cree un selector para una mediaquery
+
+  // ejemplo normal
+  .selector {
+    @media screen and (min-width:20em){
+      height: 100px;
+    }
+
+  }
+
+
+  // device-width: 480px;
+  // desktop first no aplicar!!!
+  // .box{
+    //   color: red;
+    //   @media screen and (max-width: 500px) {
+      //     color:green;
+      //   }
+      // }
+
+  @mixin mq($min-width) {
+    @media screen and (min-width:$min-width){
+      @content;
+    }
+  }
+
+  .box {
+    color: red;
+    @include mq(40em){
+      color: green;
+    }
+    @include mq(60em){
+      color: purple;
+    }
+  }
+
+  // proporcion
+  // Requerimos un mixin que asigne dimensiones de alto y ancho a un elemento con una proporcion determinada (p ej. 16:9)
+
+  @mixin ratio($w, $h){
+    height: 0;
+    overflow: hidden;
+    background: red;
+    width: 100%;
+    padding-bottom: percentage($h / $w);
+  }
+
+  .ratio {
+    @include ratio(16,9);
+    position: relative;
+    iframe,
+    video,
+    object {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
