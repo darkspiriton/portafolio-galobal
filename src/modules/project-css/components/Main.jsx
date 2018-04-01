@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import '../sass/main.scss'
+// import '../sass/main.scss'
+import '../sass/mixins.scss'
 
 class Main extends Component {
   render () {
@@ -37,6 +38,7 @@ class Main extends Component {
         <div className="box5">
           <div className="banner"></div>
         </div>
+        <div className="mixins"></div>
       </div>
     )
   }
