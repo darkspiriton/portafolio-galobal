@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 // import '../sass/main.scss'
 // import '../sass/modules/mixins.scss'
 // import '../sass/modules/functions.scss'
-import '../sass/modules/condicionales.scss'
+// import '../sass/modules/condicionales.scss'
+import '../sass/modules/functionsAdvance.scss'
 
 class Main extends Component {
   render () {
