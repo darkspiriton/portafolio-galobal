@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 // import '../sass/main.scss'
 // import '../sass/modules/mixins.scss'
-import '../sass/modules/functions.scss'
+// import '../sass/modules/functions.scss'
+import '../sass/modules/condicionales.scss'
 
 class Main extends Component {
   render () {
@@ -41,6 +42,10 @@ class Main extends Component {
         </div>
         <div className="mixins"></div>
         <div className="functions"></div>
+        <div className="gallery">
+          <div className="photo">test1</div>
+          <div className="photo">test2</div>
+        </div>
       </div>
     )
   }
