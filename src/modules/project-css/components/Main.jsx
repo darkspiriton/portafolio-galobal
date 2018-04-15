@@ -15,7 +15,7 @@ class Main extends Component {
         <div className="box2">
           <div className="box2__title">name</div>
           <div className="box2__link">
-            <a href="#">link</a>
+            {/* <a href="#">link</a> */}
           </div>
         </div>
         <div className="box3">
@@ -47,6 +47,7 @@ class Main extends Component {
           <div className="photo">test1</div>
           <div className="photo">test2</div>
         </div>
+        <div className="advance"></div>
       </div>
     )
   }

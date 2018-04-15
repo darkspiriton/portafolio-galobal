@@ -1,0 +1,99 @@
+// Introcpección
+// type-of()
+// unitless()
+// unitless()
+// inspect()
+
+$map: (
+  k1: v1,
+  k2: v2
+);
+
+$value: true;
+
+@function test($val){
+ @return $val*2;
+}
+
+$string: 'Bienvenido a Escuela Digital';
+
+.advance {
+  value: inspect($map);
+  function: test(60px);
+  variable-exists: variable-exists(value);
+  function-exists: function-exists(test);
+  saludo: $string;
+  call: call(test,30px);
+  str1: str-length($string);
+  str2: str-index($string, "Escuela");
+  str3: str-insert($string, "Amigos", 12);
+  str4: str-slice($string, str-index($string, "a"));
+  str5: to-upper-case($string);
+  str6: to-lower-case($string);
+}
+
+// round()
+// percentage()
+/**
+ * floor(number)
+ * ceil(number) redonde arriba
+ *
+ * solo reciben los numeros como parametros
+ * max(1,2,3,4,5,6,7)
+ * max(numbers...)
+ * min(numbers...)
+ *
+ * abs(number)
+ * random([limite])
+ */
+
+
+//  Funciones listas
+/**
+ * nth($list, index)
+ * lenght($list)
+ *
+ * join($list1,$list2) -> concatena listas
+ * zip() combina
+ */
+
+  $list1: red blue green;
+  $list2: 'a', 'b', 'c';
+  $zip: zip($list1,$list2);
+
+ .lists {
+   $local-colors: append($list1, yellow);
+   join: join($list1,$list2,space);
+   colors: $local-colors;
+   colors-letters:$zip;
+ }
+
+
+//  Maps
+/**
+ * map-get($map,$key);
+ * map-keys($map);
+ * map-values($map);
+ * map-has-key($map,$key);
+ * map-merge($map1.$map2);
+ */
+
+
+//  Selectores
+/**
+ * selector-nest($selector1,$selector2)
+ * Crea un selector anidado (nested)
+ *
+ * selector-append($selector1,$selector2)
+ * Crea un selector nuevo uniendo los dos selectores
+ */
+
+//  if(condicion, if value, else value) -> equivalente al operador ternario
+// genera un string aleatorio unico en el scope actual
+// unique-id()
+$var: false;
+.if {
+  width: if($var, 10px,20px);
+  unique1: unique-id();
+  unique2: unique-id();
+}
